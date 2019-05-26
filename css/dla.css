@@ -1,0 +1,19 @@
+body{
+    background-color: black;
+    margin: 0px;
+    padding: 0px;
+}
+
+div {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas{
+    border: 3px solid rgba(0,105,0);
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px green; 
+}
