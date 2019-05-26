@@ -179,3 +179,9 @@ function plot(matrix){
     ctx.putImageData(imgData,0,0);
 }
 
+
+// -------------------- reload on key or click
+
+document.body.onclick = function(ev) {
+    location.reload();
+}
