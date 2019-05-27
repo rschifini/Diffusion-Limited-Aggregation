@@ -4,16 +4,25 @@ body{
     padding: 0px;
 }
 
-div {
+.canvas-container {
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 canvas{
-    border: 3px solid rgba(0,105,0);
+    border: 3px solid rgb(0,105,0);
     border-radius: 50%;
     box-shadow: 0px 0px 15px green; 
+}
+
+.footer {
+    /* color: rgb(0,105,0); */
+    color: rgb(0,0,0);
+    margin: 2vh;
+    height: 6vh;
+    padding-left: 5vh;
+    text-shadow: 1px 1px 6px green, -1px 1px 6px green, -1px -1px 6px green, 1px -1px 6px green;
 }

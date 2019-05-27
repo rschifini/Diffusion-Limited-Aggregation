@@ -1,21 +1,18 @@
-var cv, ctx, matrix, center, anim;
-var bndBox = {x1:Infinity,x2:-Infinity,y1:Infinity,y2:-Infinity};
+var cv, ctx, matrix, center, anim, bndBox, iteration; 
 var step = 1500;
 var limit = 15000;
-var iteration = limit;
 var delta = 15;
-var maxR = delta;
-
 window.onload = setup;
 
 function setup() {
+    bndBox = {x1:Infinity,x2:-Infinity,y1:Infinity,y2:-Infinity};
+    iteration = limit;
     cv = document.getElementById('canvas')
     ctx = cv.getContext('2d');
     center = Math.floor(cv.width/2);
     matrix = createMatrix(cv.width);
 
     placePoint(center,center,1/limit);
-    // dla(limit);
     anim = window.requestAnimationFrame(dla_anim);
 }
 
@@ -87,14 +84,6 @@ function movePoint(x, y) {
 }
 
 // -------------- dla functions
-
-function dla(n) {
-    for (let k = 0; k < n; k++) {
-        onePoint(k);
-        if(maxR>center) break;
-    }
-    plot(matrix);
-}
 
 function dla_anim() {
     if(iteration<=0){
@@ -183,5 +172,9 @@ function plot(matrix){
 // -------------------- reload on key or click
 
 document.body.onclick = function(ev) {
-    location.reload();
+    // location.reload();
+    window.cancelAnimationFrame(anim);
+    ctx.fill = '#000';
+    ctx.fillRect(0,0,cv.width,cv.height);
+    setup();
 }
