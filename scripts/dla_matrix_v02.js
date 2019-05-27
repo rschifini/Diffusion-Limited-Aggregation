@@ -172,9 +172,28 @@ function plot(matrix){
 // -------------------- reload on key or click
 
 document.body.onclick = function(ev) {
-    // location.reload();
     window.cancelAnimationFrame(anim);
     ctx.fill = '#000';
     ctx.fillRect(0,0,cv.width,cv.height);
     setup();
 }
+
+// --------------- Test
+
+function Piece(){
+    this.points = [{x:0,y:0}],
+    this.addPoint = function(n){
+        var count = n;
+        while (count) {
+            let pt = this.points[Math.floor(Math.random()*this.points.length)];
+            pt = movePoint(pt.x,pt.y);
+            if(!this.includes(pt)){
+                this.points.push(pt);
+                count--;
+            }
+        }
+    }
+    this.includes = function(pt) {
+        return this.points.map(x=>JSON.stringify(x)).includes(JSON.stringify(pt))
+    }
+};
